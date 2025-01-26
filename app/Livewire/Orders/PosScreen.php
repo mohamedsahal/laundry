@@ -264,23 +264,28 @@ class PosScreen extends Component
     {
         $this->validate([
             'customer_name' => 'required',
-            'customer_phone' => 'required'
+            'customer_phone' => 'required',
+            'email' => 'nullable|email|unique:customers,email'
         ]);
 
-        $customer = Customer::create([
-            'name' => $this->customer_name,
-            'phone' => $this->customer_phone,
-            'email' => $this->email,
-            'tax_number' => $this->tax_no,
-            'address' => $this->address,
-            'is_active' => $this->is_active,
-            'created_by' => auth()->id()
-        ]);
+        try {
+            $customer = Customer::create([
+                'name' => $this->customer_name,
+                'phone' => $this->customer_phone,
+                'email' => $this->email,
+                'tax_number' => $this->tax_no,
+                'address' => $this->address,
+                'is_active' => $this->is_active ? 1 : 0,
+                'created_by' => auth()->id()
+            ]);
 
-        $this->selected_customer = $customer;
-        $this->dispatch('closemodal', ['modal' => '#addcustomer']);
-        $this->reset(['customer_name', 'customer_phone', 'email', 'tax_no', 'address', 'is_active']);
-        $this->dispatch('alert', ['type' => 'success', 'message' => 'Customer added successfully']);
+            $this->selectCustomer($customer->id);
+            $this->dispatch('closemodal', ['modal' => '#addcustomer']);
+            $this->reset(['customer_name', 'customer_phone', 'email', 'tax_no', 'address']);
+            $this->dispatch('alert', ['type' => 'success', 'message' => 'Customer added successfully']);
+        } catch (\Exception $e) {
+            $this->dispatch('alert', ['type' => 'error', 'message' => 'Error creating customer: ' . $e->getMessage()]);
+        }
     }
     /* select customer */
     public function selectCustomer($id)

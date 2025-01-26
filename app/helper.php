@@ -43,30 +43,30 @@ function getpaymentMode($type)
     if ($lang) {
         switch ($type) {
             case 1:
-                return $lang->data['cash'] ?? 'CASH';
+                return $lang->data['sahal'] ?? 'Sahal';
             case 2:
-                return $lang->data['upi'] ?? 'UPI';
+                return $lang->data['edahab'] ?? 'eDahab';
             case 3:
-                return $lang->data['card'] ?? 'CARD';
+                return $lang->data['yeel'] ?? 'Yeel';
             case 4:
-                return $lang->data['cheque'] ?? 'CHEQUE';
+                return $lang->data['yeel'] ?? 'Yeel';
             case 5:
-                return $lang->data['bank_transfer'] ?? 'BANK TRANSFER';
+                return $lang->data['mycash'] ?? 'MyCash';
             default:
                 return '';
         }
     } else {
     switch ($type) {
         case 1:
-            return 'CASH';
+            return 'Sahal';
         case 2:
-            return 'UPI';
+            return 'eDahab';
         case 3:
-            return 'CARD';
+            return 'Yeel';
         case 4:
-            return 'CHEQUE';
+            return 'Yeel';
         case 5:
-            return 'BANK TRANSFER';
+            return 'MyCash';
         default:
             return '';
     }
@@ -198,10 +198,10 @@ function getFavIcon()
     $settings = new App\Models\MasterSettings();
     $site = $settings->siteData();
     if (isset($site['default_favicon']) && file_exists(public_path($site['default_favicon']))) {
-        $favicon = (($site['default_favicon']) && ($site['default_favicon'] != "")) ? $site['default_favicon'] : 'assets/img/favicon.png';
+        $favicon = (($site['default_favicon']) && ($site['default_favicon'] != "")) ? $site['default_favicon'] : 'assets/images/laundry_icon.png';
         return $favicon;
     }
-    return asset('assets/img/logo-ct.png');
+    return asset('assets/images/laundry_icon.png');
 }
 
 
@@ -210,11 +210,7 @@ function getApplicationName()
 {
     $settings = new App\Models\MasterSettings();
     $site = $settings->siteData();
-    if (isset($site['default_application_name'])) {
-        $favicon = (($site['default_application_name']) && ($site['default_application_name'] != "")) ? $site['default_application_name'] : 'Laundry Box';
-        return $favicon;
-    }
-    return 'Laundry Box';
+    return $site['default_application_name'] ?? 'Laundrify';
 }
 
 
@@ -224,10 +220,10 @@ function getSiteLogo()
     $settings = new App\Models\MasterSettings();
     $site = $settings->siteData();
     if (isset($site['default_logo']) && file_exists(public_path($site['default_logo']))) {
-        $favicon = (($site['default_logo']) && ($site['default_logo'] != "")) ? $site['default_logo'] : 'assets/img/logo-ct.png';
+        $favicon = (($site['default_logo']) && ($site['default_logo'] != "")) ? $site['default_logo'] : '/assets/images/logo.png';
         return $favicon;
     }
-    return asset('assets/img/logo-ct.png');
+    return asset('assets/images/logo.png');
 }
 
 //Checks if Selected language is RTL

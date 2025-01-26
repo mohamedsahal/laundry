@@ -1,9 +1,9 @@
 <?php
 return [
-    'lets_get_started'  => 'Lets get started!',
-    'tailor_pos_installer'  => 'Laundry Box Installer',
-    'tailor_pos_updater'  => 'Laundry Box Updater',
-    'updater_message'  => 'Hello, Laundry Box has received new updates! ',
+    'title'   => 'Installer',
+    'tailor_pos_installer'  => 'Laundrify Installer',
+    'tailor_pos_updater'  => 'Laundrify Updater',
+    'updater_message'  => 'Hello, Laundrify has received new updates! ',
     'updater_message_2' => 'Press on the update button to install new updates.',
     'update' => 'Update',
     'updating' => 'Updating',
@@ -12,7 +12,7 @@ return [
     'requirements'  => "Requirements",
     'database'  => 'Database',
     'done'  => 'Done',
-    'welcome' => 'Welcome to Laundry Box!',
+    'welcome' => 'Welcome to Laundrify!',
     'welcome_description' => "Thank you for choosing us! This installer will guide you through the process of installing the  software on your server. Please review and adjust the installation settings as needed to ensure a smooth installation experience. Click 'Next' to begin.",
     'do_not_close'  => 'Please do not close the installer after this  point.',
     'press_start' => 'Press start to check for requirements',
@@ -41,4 +41,11 @@ return [
     'check_database_connection' => 'Check Database Connection',
     'start_installation'    => 'Start Installation',
     'app_installer' => 'App Installer',
+    'next' => 'Next Step',
+    'back' => 'Previous',
+    'finish' => 'Install',
+    'forms' => [
+        'errorTitle' => 'The Following errors occurred:',
+    ],
+    'wait' => 'Please wait...',
 ];

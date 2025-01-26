@@ -8,7 +8,7 @@
                 <template x-if="!running">
                     <div class="tw-w-full tw-flex tw-flex-col tw-py-8 tw-pt-0">
                         <div class="tw-w-full tw-flex tw-items-center tw-justify-center tw-flex-col">
-                            <h6 class="mb-4 text-xl">Install LaundryBox</h6>
+                            <h6 class="mb-4 text-xl">Install Laundrify</h6>
                             <p class="text-neutral-500">We found an update, Press continue to install it.</p>
                         </div>
                         <div class="tw-w-full tw-flex tw-items-center tw-justify-center tw-mt-4">

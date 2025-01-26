@@ -19,7 +19,13 @@ class PrintOrder extends Component
     #[Layout('components.layouts.print-layout')]
     public function render()
     {
-        return view('livewire.orders.print-order');
+        $settings = new MasterSettings();
+        $site = $settings->siteData();
+        $application_name = getApplicationName();
+        return view('livewire.orders.print-order', [
+            'site' => $site,
+            'application_name' => $application_name,
+        ]);
     }
 
     /* process before render */
@@ -42,7 +48,7 @@ class PrintOrder extends Component
 
         /* if site has default appplication name */
         if (isset($site['default_application_name'])) {
-            $sitename = (($site['default_application_name']) && ($site['default_application_name'] != "")) ? $site['default_application_name'] : 'Laundry Box';
+            $sitename = (($site['default_application_name']) && ($site['default_application_name'] != "")) ? $site['default_application_name'] : 'Laundrify';
             $this->sitename = $sitename;
         }
         /* if site has default phone number */

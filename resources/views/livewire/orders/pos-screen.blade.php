@@ -665,19 +665,17 @@
                                     {{ $lang->data['choose_payment_type'] ?? 'Choose Payment Type' }}
                                 </option>
                                 <option class="select-box" value="1">
-                                    {{ $lang->data['cash'] ?? 'Cash' }}
+                                    {{ $lang->data['Sahal'] ?? 'Sahal' }}
                                 </option>
                                 <option class="select-box" value="2">
-                                    {{ $lang->data['upi'] ?? 'UPI' }}
+                                    {{ $lang->data['eDahab'] ?? 'eDahab' }}
                                 </option>
-                                <option class="select-box" value="3">
-                                    {{ $lang->data['card'] ?? 'Card' }}
-                                </option>
+                             
                                 <option class="select-box" value="4">
-                                    {{ $lang->data['cheque'] ?? 'Cheque' }}
+                                    {{ $lang->data['Yeel'] ?? 'Yeel' }}
                                 </option>
                                 <option class="select-box" value="5">
-                                    {{ $lang->data['bank_transfer'] ?? 'Bank Transfer' }}
+                                    {{ $lang->data['MyCash'] ?? 'MyCash' }}
                                 </option>
                             </select>
                             @error('payment_type')
@@ -719,138 +717,119 @@
             </div>
         </div>
 
-        <div class="modal fade " id="addcustomer" tabindex="-1" role="dialog" aria-labelledby="addcustomer"
-            aria-hidden="true" wire:ignore.self>
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h6 class="modal-title fw-600" id="addcustomer">
-                            {{ $lang->data['add_customer'] ?? 'Add Customer' }}
-                        </h6>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <form wire:submit.prevent="createCustomer">
-                        <div class="modal-body">
-                            <div class="row g-2 align-items-center">
-                                <div class="col-md-12 mb-1">
-                                    <label class="form-label">{{ $lang->data['customer_name'] ?? 'Customer Name' }}
-                                        <span class="text-danger">*</span></label>
-                                    <input type="text" required class="form-control"
-                                        placeholder="{{ $lang->data['enter_customer_name'] ?? 'Enter Customer Name' }}"
-                                        wire:model="customer_name">
-                                    @error('customer_name')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                                <div class="col-md-12 mb-1">
-                                    <label class="form-label">{{ $lang->data['phone_number'] ?? 'Phone Number' }}
-                                        <span class="text-danger">*</span></label>
-                                    <input type="text" required class="form-control"
-                                        placeholder="{{ $lang->data['enter_phone_number'] ?? 'Enter Phone Number' }}"
-                                        wire:model="customer_phone">
-                                    @error('customer_phone')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                                <div class="col-md-12 mb-1">
-                                    <label class="form-label">{{ $lang->data['email'] ?? 'Email' }}</label>
-                                    <input type="email" class="form-control"
-                                        placeholder="{{ $lang->data['enter_email'] ?? 'Enter Email' }}"
-                                        wire:model="email">
-                                    @error('email')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                                <div class="col-md-12 mb-1">
-                                    <label class="form-label">{{ $lang->data['tax_number'] ?? 'Tax Number' }}</label>
-                                    <input type="text" class="form-control"
-                                        placeholder="{{ $lang->data['enter_tax_number'] ?? 'Enter Tax Number' }}"
-                                        wire:model="tax_no">
-                                </div>
-                                <div class="col-md-12 mb-1">
-                                    <label class="form-label">{{ $lang->data['address'] ?? 'Address' }}</label>
-                                    <textarea class="form-control"
-                                        placeholder="{{ $lang->data['enter_address'] ?? 'Enter Address' }}"
-                                        wire:model="address"></textarea>
-                                </div>
-                                <div class="col-md-12 mb-1">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="is_active"
-                                            wire:model="is_active">
-                                        <label class="form-check-label"
-                                            for="is_active">{{ $lang->data['is_active'] ?? 'Is Active' }} ?</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary"
-                                data-bs-dismiss="modal">{{ $lang->data['cancel'] ?? 'Cancel' }}</button>
-                            <button type="submit" class="btn btn-primary">{{ $lang->data['save'] ?? 'Save' }}</button>
-                        </div>
-                    </form>
+      
+    </div>
+
+    <div class="modal fade " id="addcustomer" tabindex="-1" role="dialog" aria-labelledby="addcustomer"
+        aria-hidden="true" wire:ignore.self>
+        <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+            <div class="modal-content modal-content-md radius-16 bg-base">
+                <div class="modal-header py-16 px-24 border border-top-0 border-start-0 border-end-0">
+                    <h6 class="modal-title text-md" id="addcustomer">
+                        {{ $lang->data['add_customer'] ?? 'Add Customer' }}
+                    </h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
+                <form>
+                    <div class="modal-body p-24">
+                        <div class="row g-2 align-items-center">
+                            <div class="col-md-12 mb-1">
+                                <label class="form-label">{{ $lang->data['customer_name'] ?? 'Customer Name' }}
+                                    <span class="text-danger">*</span></label>
+                                <input type="text" required class="form-control"
+                                    placeholder="{{ $lang->data['enter_customer_name'] ?? 'Enter Customer Name' }}"
+                                    wire:model="customer_name">
+                                @error('customer_name')
+                                    <span class="text-danger  text-xs">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-12 mb-1">
+                                <label class="form-label">{{ $lang->data['phone_number'] ?? 'Phone Number' }}
+                                    <span class="text-danger">*</span></label>
+                                <input type="text" required class="form-control"
+                                    placeholder="{{ $lang->data['enter_phone_number'] ?? 'Enter Phone Number' }}"
+                                    wire:model="customer_phone">
+                                @error('customer_phone')
+                                    <span class="text-danger text-xs">{{ $message }}</span>
+                                @enderror
+                            </div>
+                           
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label">{{ $lang->data['address'] ?? 'Address' }}</label>
+                                <textarea type="text" class="form-control" placeholder="{{ $lang->data['enter_address'] ?? 'Enter Address' }}"
+                                    wire:model="address"></textarea>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">{{ $lang->data['cancel'] ?? 'Cancel' }}</button>
+                        <button type="button" class="btn btn-primary"
+                            wire:click.prevent="createCustomer()">{{ $lang->data['save'] ?? 'Save' }}</button>
+                    </div>
+                </form>
             </div>
         </div>
-        <script wire:ignore>
-            function posFunction() {
-                return {
-                    detached: false,
-                    shown: false,
-                    init() {
-                        if (window.innerWidth < 1024) {
-                            this.detached = true;
-                        } else {
-                            this.detached = false;
-                        }
-                        window.addEventListener('resize', (e) => {
-                            if (window.innerWidth < 1024) {
-                                this.detached = true;
-                            } else {
-                                this.detached = false;
-                            }
-                        })
-
-                        this.$wire.on('reloadpage', orderId => {
-                            if (this.$wire.order) {
-                                window.location.href = '{{ url('admin/orders/') }}';
-                            } else {
-                                window.location.reload();
-
-                            }
-                        })
-                        this.$wire.on('printPageOrder', orderId => {
-                            var $id = orderId;
-                            window.open(
-                                '{{ url('admin/orders/print') }}' + '/' + $id,
-                                '_blank'
-                            );
-                            window.onfocus = function() {
-                                setTimeout(function() {
-
-                                    window.location.href = '{{ url('admin/orders/') }}';
-
-                                }, 1000);
-                            }
-                        })
-                        this.$wire.on('printPage', orderId => {
-                            var $id = orderId;
-                            window.open(
-                                '{{ url('admin/orders/print') }}' + '/' + $id,
-                                '_blank'
-                            );
-                            window.onfocus = function() {
-                                setTimeout(function() {
-                                    window.location.reload()
-                                }, 1000);
-                            }
-                        })
-                    },
-                }
-            }
-        </script>
-        <livewire:components.check-financial-year-component />
     </div>
+<script wire:ignore>
+    function posFunction() {
+        return {
+            detached: false,
+            shown: false,
+            init() {
+                if (window.innerWidth < 1024) {
+                    this.detached = true;
+                } else {
+                    this.detached = false;
+                }
+                window.addEventListener('resize', (e) => {
+                    if (window.innerWidth < 1024) {
+                        this.detached = true;
+                    } else {
+                        this.detached = false;
+                    }
+                })
+
+                this.$wire.on('reloadpage', orderId => {
+                    if (this.$wire.order) {
+                        window.location.href = '{{ url('admin/orders/') }}';
+                    } else {
+                        window.location.reload();
+
+                    }
+                })
+                this.$wire.on('printPageOrder', orderId => {
+                    var $id = orderId;
+                    window.open(
+                        '{{ url('admin/orders/print') }}' + '/' + $id,
+                        '_blank'
+                    );
+                    window.onfocus = function() {
+                        setTimeout(function() {
+
+                            window.location.href = '{{ url('admin/orders/') }}';
+
+                        }, 1000);
+                    }
+                })
+                this.$wire.on('printPage', orderId => {
+                    var $id = orderId;
+                    window.open(
+                        '{{ url('admin/orders/print') }}' + '/' + $id,
+                        '_blank'
+                    );
+                    window.onfocus = function() {
+                        setTimeout(function() {
+                            window.location.reload()
+                        }, 1000);
+                    }
+                })
+            },
+        }
+    }
+</script>
+<livewire:components.check-financial-year-component />
 </div>

@@ -20,7 +20,13 @@ class ViewOrder extends Component
     #[Title('View Order')]
     public function render()
     {
-        return view('livewire.orders.view-order');
+        $settings = new MasterSettings();
+        $site = $settings->siteData();
+        $application_name = getApplicationName();
+        return view('livewire.orders.view-order', [
+            'site' => $site,
+            'application_name' => $application_name,
+        ]);
     }
 
     /* process before mount */
@@ -52,7 +58,7 @@ class ViewOrder extends Component
         $site = $settings->siteData();
         if(isset($site['default_application_name']))
         {   /* if site  has default application name */
-            $sitename = (($site['default_application_name']) && ($site['default_application_name'] !=""))? $site['default_application_name'] : 'Laundry Box';
+            $sitename = (($site['default_application_name']) && ($site['default_application_name'] != "")) ? $site['default_application_name'] : 'Laundrify';
             $this->sitename = $sitename;
         }
         if(isset($site['default_phone_number']))
